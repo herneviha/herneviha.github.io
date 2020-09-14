@@ -1,0 +1,46 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<title>Herneviha</title>
+<style>
+	.nope {
+		color: red;
+		text-decoration: line-through;
+	}
+</style>
+</head>
+<body>
+
+<div id="menu"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+(async() => {
+    let json = await axios.get('https://unicafe.fi/wp-json/swiss/v1/restaurants')
+        .catch(error => {
+            console.log(error);
+        })
+    
+    json.data.forEach((restaurant) => {
+    	if(restaurant.title === 'Chemicum')
+    	{
+    		restaurant.menuData.menus.forEach(item => {
+    			document.getElementById('menu').innerHTML += `<h3>${item.date}</h3>`;
+    			item.data.forEach((data, i) => {
+    				if(data.ingredients != '_' && data.ingredients != '')
+    				{
+    					if(data.ingredients.toLowerCase().includes('herne'))
+    						document.getElementById('menu').innerHTML += `<h4 class="nope">${data.name}</h4><p>${data.ingredients}</p>`;
+    					else
+    						document.getElementById('menu').innerHTML += `<h4>${data.name}</h4><p>${data.ingredients}</p>`;
+    				}
+    			});
+    		});
+    	}
+    });
+})();
+</script>
+</body>
+</html> 
