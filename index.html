@@ -1,46 +1,47 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-<meta content="utf-8" http-equiv="encoding">
-<title>Herneviha</title>
-<style>
-	.nope {
-		color: red;
-		text-decoration: line-through;
-	}
-</style>
-</head>
-<body>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <meta content="utf-8" http-equiv="encoding" />
+    <title>Herneviha</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header><h1>Herneviha</h1></header>
+    <article id="menu"></article>
+    <footer></footer>
 
-<div id="menu"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script>
-(async() => {
-    let json = await axios.get('https://unicafe.fi/wp-json/swiss/v1/restaurants')
-        .catch(error => {
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      (async () => {
+        let json = await axios
+          .get("https://unicafe.fi/wp-json/swiss/v1/restaurants")
+          .catch((error) => {
             console.log(error);
-        })
-    
-    json.data.forEach((restaurant) => {
-    	if(restaurant.title === 'Chemicum')
-    	{
-    		restaurant.menuData.menus.forEach(item => {
-    			document.getElementById('menu').innerHTML += `<h3>${item.date}</h3>`;
-    			item.data.forEach((data, i) => {
-    				if(data.ingredients != '_' && data.ingredients != '')
-    				{
-    					if(data.ingredients.toLowerCase().includes('herne'))
-    						document.getElementById('menu').innerHTML += `<h4 class="nope">${data.name}</h4><p>${data.ingredients}</p>`;
-    					else
-    						document.getElementById('menu').innerHTML += `<h4>${data.name}</h4><p>${data.ingredients}</p>`;
-    				}
-    			});
-    		});
-    	}
-    });
-})();
-</script>
-</body>
-</html> 
+          });
+
+        json.data.forEach((restaurant) => {
+          if (restaurant.title === "Chemicum") {
+            restaurant.menuData.menus.forEach((item) => {
+              document.getElementById(
+                "menu"
+              ).innerHTML += `<section id="${item.date}"><h2 class="date">${item.date}</h2></section>`;
+              item.data.forEach((data, i) => {
+                if (data.ingredients != "_" && data.ingredients != "") {
+                  if (data.ingredients.toLowerCase().includes("herne"))
+                    document.getElementById(
+                      item.date
+                    ).innerHTML += `<div class="food_container"><h3 class="name nope">${data.name}</h3><p class="ingredients">${data.ingredients}</p></div>`;
+                  else
+                    document.getElementById(
+                      item.date
+                    ).innerHTML += `<div class="food_container"><h3>${data.name}</h3><p>${data.ingredients}</p></div>`;
+                }
+              });
+            });
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
