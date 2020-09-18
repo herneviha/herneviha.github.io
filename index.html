@@ -12,36 +12,6 @@
     <footer></footer>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-      (async () => {
-        let json = await axios
-          .get("https://unicafe.fi/wp-json/swiss/v1/restaurants")
-          .catch((error) => {
-            console.log(error);
-          });
-
-        json.data.forEach((restaurant) => {
-          if (restaurant.title === "Chemicum") {
-            restaurant.menuData.menus.forEach((item) => {
-              document.getElementById(
-                "menu"
-              ).innerHTML += `<section id="${item.date}"><h2 class="date">${item.date}</h2></section>`;
-              item.data.forEach((data, i) => {
-                if (data.ingredients != "_" && data.ingredients != "") {
-                  if (data.ingredients.toLowerCase().includes("herne"))
-                    document.getElementById(
-                      item.date
-                    ).innerHTML += `<div class="food_container"><h3 class="name nope">${data.name}</h3><p class="ingredients">${data.ingredients}</p></div>`;
-                  else
-                    document.getElementById(
-                      item.date
-                    ).innerHTML += `<div class="food_container"><h3>${data.name}</h3><p>${data.ingredients}</p></div>`;
-                }
-              });
-            });
-          }
-        });
-      })();
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>
