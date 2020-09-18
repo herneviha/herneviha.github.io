@@ -41,9 +41,9 @@ const getSectionId = () => {
   const date = new Date();
   const weekDays = ['Su', 'Ma', 'Ti', 'Ke', 'To', 'Pe', 'La'];
   if (date.getDay() === 6) {
-    date.setDate(date.getDate() - 1);
+    date.setDate(date.getDate() + 2);
   } else if (date.getDay() === 0) {
-    date.setDate(date.getDate() - 2);
+    date.setDate(date.getDate() + 1);
   }
   return `${weekDays[date.getDay()]} ${date.getDate()}.${(date.getMonth() + 1).toString().padStart(2, '0')}.`;
 }
