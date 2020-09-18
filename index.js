@@ -17,7 +17,7 @@ const renderMenu = (restaurants) => {
   restaurants.data.forEach((restaurant) => {
     if (restaurant.title === "Chemicum") {
       restaurant.menuData.menus.forEach((item) => {
-        if (/Ma|Ti|Ke|To|Pe/.test(item.date)) {
+        if (notAlreadyPassed(item.date)) {
           document.getElementById(
             "menu"
           ).innerHTML += `<section id="${item.date}"><h2 class="date">${item.date}</h2></section>`;
@@ -35,6 +35,14 @@ const renderMenu = (restaurants) => {
   });
   const sectionId = getSectionId();
   document.getElementById(sectionId).scrollIntoView();
+}
+
+const notAlreadyPassed = (daydata) => {
+  const date = new Date();
+  if (parseInt(daydata.substring(3, 5)) < date.getDate() && parseInt(daydata.substring(6, 8)) <= date.getMonth() + 1) {
+    return false;
+  }
+  return /Ma|Ti|Ke|To|Pe/.test(daydata);
 }
 
 const getSectionId = () => {
