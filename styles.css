@@ -2,6 +2,7 @@ body {
   width: 100vw;
   height: 100vh;
   margin: 0;
+  font-family: monospace;
 }
 
 #menu,
@@ -9,16 +10,31 @@ header {
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color: lavenderblush;
+}
+
+h1 {
+  font-family: Helvetica;
+  font-size: 10vw;
+  text-shadow: 8px 8px cyan;
 }
 
 section {
-  width: 50%;
-  min-width: 300px;
+  width: 90%;
+  min-width: 200px;
   max-width: 600px;
+  z-index: 1;
+  padding: 2%;
+  margin-bottom: 2%;
+  background-color: white;
+  border: 20px solid aliceblue;
+  text-align: center;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 3rem;
+  text-align: center;
+  text-decoration: underline;
 }
 h3 {
   font-size: 1.5rem;
@@ -27,6 +43,7 @@ h3 {
 
 p {
   font-size: 1rem;
+
   margin: 0;
 }
 
