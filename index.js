@@ -41,7 +41,7 @@ const notAlreadyPassed = (daydata) => {
   const date = new Date();
   if (parseInt(daydata.substring(3, 5)) < date.getDate() && parseInt(daydata.substring(6, 8)) = date.getMonth() + 1) {
     return false;
-  } else if (parseInt(daydata.substring(6, 8) < date.getMonth() + 1) {
+  } else if (parseInt(daydata.substring(6, 8)) < date.getMonth() + 1) {
     return false;
   }
   return /Ma|Ti|Ke|To|Pe/.test(daydata);
