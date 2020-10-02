@@ -33,8 +33,6 @@ const renderMenu = (restaurants) => {
       });
     }
   });
-  const sectionId = getSectionId();
-  document.getElementById(sectionId).scrollIntoView();
 }
 
 const notAlreadyPassed = (daydata) => {
@@ -55,7 +53,7 @@ const getSectionId = () => {
   } else if (date.getDay() === 0) {
     date.setDate(date.getDate() + 1);
   }
-  return `${weekDays[date.getDay()]} ${date.getDate()}.${(date.getMonth() + 1).toString().padStart(2, '0')}.`;
+  return `${weekDays[date.getDay()]} ${date.getDate().toString().padStart(2, '0')}.${(date.getMonth() + 1).toString().padStart(2, '0')}.`;
 }
 
 const highlightAllergens = (ingredients) => {
