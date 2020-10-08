@@ -11,12 +11,14 @@ header {
   align-items: center;
   flex-direction: column;
   background-color: lavenderblush;
+  padding-bottom: 2vh;
 }
 
 h1 {
   font-family: Helvetica;
   font-size: 10vw;
   text-shadow: 8px 8px cyan;
+  margin-bottom: 0.5vh;
 }
 
 section {
@@ -49,4 +51,25 @@ p {
 
 .food_container {
   margin-bottom: 7%;
+}
+
+select {
+  font-family: Helvetica;
+  font-weight: 800;
+  font-size: 4vw;
+  border: none;
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  text-align: center;
+}
+select:hover {
+  text-shadow: 2px 2px cyan;
+  transition: 1s;
+}
+option,
+option:hover {
+  font-size: 1rem;
+  text-shadow: none;
+  font-weight: normal;
 }
