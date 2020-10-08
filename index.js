@@ -1,5 +1,5 @@
-window.addEventListener('load', (e) => {
-  fetchMenu().then(restaurants => {
+window.addEventListener("load", (e) => {
+  fetchMenu().then((restaurants) => {
     renderMenu(restaurants);
   });
 });
@@ -11,10 +11,13 @@ const fetchMenu = () => {
       console.log(error);
     });
   return json;
-}
+};
 
 const renderMenu = (restaurants) => {
   restaurants.data.forEach((restaurant) => {
+    document.getElementById(
+      "restaurants"
+    ).innerHTML += `<option>${restaurant.title}</option>`;
     if (restaurant.title === "Chemicum") {
       restaurant.menuData.menus.forEach((item) => {
         if (notAlreadyPassed(item.date)) {
@@ -23,7 +26,7 @@ const renderMenu = (restaurants) => {
           ).innerHTML += `<section id="${item.date}"><h2 class="date">${item.date}</h2></section>`;
           item.data.forEach((data, i) => {
             if (data.ingredients != "_" && data.ingredients != "") {
-              let ingredients = highlightAllergens(data.ingredients)
+              let ingredients = highlightAllergens(data.ingredients);
               document.getElementById(
                 item.date
               ).innerHTML += `<div class="food_container"><h3 class="name">${data.name}</h3><p class="ingredients">${ingredients}</p></div>`;
@@ -33,41 +36,45 @@ const renderMenu = (restaurants) => {
       });
     }
   });
-}
+  const sectionId = getSectionId();
+  document.getElementById(sectionId).scrollIntoView();
+};
 
 const notAlreadyPassed = (daydata) => {
   const date = new Date();
-  if (parseInt(daydata.substring(3, 5)) < date.getDate() && parseInt(daydata.substring(6, 8)) === date.getMonth() + 1) {
-    return false;
-  } else if (parseInt(daydata.substring(6, 8)) < date.getMonth() + 1) {
+  if (
+    parseInt(daydata.substring(3, 5)) < date.getDate() &&
+    parseInt(daydata.substring(6, 8)) <= date.getMonth() + 1
+  ) {
     return false;
   }
   return /Ma|Ti|Ke|To|Pe/.test(daydata);
-}
+};
 
 const getSectionId = () => {
   const date = new Date();
-  const weekDays = ['Su', 'Ma', 'Ti', 'Ke', 'To', 'Pe', 'La'];
+  const weekDays = ["Su", "Ma", "Ti", "Ke", "To", "Pe", "La"];
   if (date.getDay() === 6) {
     date.setDate(date.getDate() + 2);
   } else if (date.getDay() === 0) {
     date.setDate(date.getDate() + 1);
   }
-  return `${weekDays[date.getDay()]} ${date.getDate().toString().padStart(2, '0')}.${(date.getMonth() + 1).toString().padStart(2, '0')}.`;
-}
+  return `${weekDays[date.getDay()]} ${date.getDate()}.${(date.getMonth() + 1)
+    .toString()
+    .padStart(2, "0")}.`;
+};
 
 const highlightAllergens = (ingredients) => {
   allergens = /herne|linss(e|i)|pa(v|p)u|pähkin(ä|ö)/;
-  const listOfIngredients = ingredients.split(',');
+  const listOfIngredients = ingredients.split(",");
 
   let result = [];
   for (let i = 0; i < listOfIngredients.length; i++) {
     if (allergens.test(listOfIngredients[i].toLocaleLowerCase())) {
       result.push(`<mark>${listOfIngredients[i]}</mark>`);
-    }
-    else {
+    } else {
       result.push(listOfIngredients[i]);
     }
   }
   return result.join();
-}
+};
