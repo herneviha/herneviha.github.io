@@ -1,0 +1,28 @@
+:root {
+  /*STRUCTURE*/
+  --main-bg-color: orange;
+  --section-bg-color: cornflowerblue;
+  --section-border: 5px dotted white;
+
+  /* TITLE */
+  --title-text-shadow: 8px 8px cornflowerblue;
+  --title-font-color: orange;
+  --title-font-size: 15vw;
+  --date-font-size: 3rem;
+  --date-underline: underline overline;
+  --food-font-size: 2rem;
+  --title-font: Impact;
+
+  /*INGREDIENTS*/
+  --main-font: Impact;
+  --main-font-color: floralwhite;
+  --main-font-size: 1.5rem;
+  --mark-bg-color: red;
+  --mark-color: white;
+  --text-align: center;
+  --ingredient-opacity: 1;
+
+  /*THEME BUTTON*/
+  --button-border: 5px dotted white;
+  --button-bg-color: orange;
+}

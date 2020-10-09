@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: var(--main-font);
   color: var(--main-font-color);
+  background-color: var(--main-bg-color);
 }
 
 #menu,
@@ -16,8 +17,9 @@ header {
 
 h1 {
   font-family: var(--title-font);
-  font-size: 10vw;
+  font-size: var(--title-font-size);
   text-shadow: var(--title-text-shadow);
+  color: var(--title-font-color);
 }
 
 section {
@@ -33,17 +35,17 @@ section {
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: var(--date-font-size);
   text-align: var(--text-align);
-  text-decoration: underline;
+  text-decoration: var(--date-underline);
 }
 h3 {
-  font-size: 2rem;
+  font-size: var(--food-font-size);
   margin-bottom: 1rem;
 }
 
 p {
-  font-size: 1.5rem;
+  font-size: var(--main-font-size);
   opacity: var(--ingredient-opacity);
   margin: 0;
 }
@@ -54,6 +56,7 @@ p {
 
 mark {
   background-color: var(--mark-bg-color);
+  color: var(--mark-color);
 }
 
 #theme_selector {

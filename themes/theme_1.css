@@ -1,15 +1,28 @@
 :root {
+  /*STRUCTURE*/
   --main-bg-color: lavenderblush;
-  --title-text-shadow: 8px 8px cyan;
   --section-bg-color: white;
   --section-border: 20px solid aliceblue;
+
+  /* TITLE */
+  --title-text-shadow: 8px 8px cyan;
+  --title-font-size: 10vw;
+  --title-font-color: black;
+  --date-font-size: 3rem;
+  --date-underline: underline;
+  --food-font-size: 2rem;
   --title-font: Helvetica;
+
+  /*INGREDIENTS*/
   --main-font: monospace;
+  --main-font-size: 1.5rem;
   --main-font-color: black;
   --mark-bg-color: yellow;
   --mark-color: black;
   --text-align: center;
   --ingredient-opacity: 1;
+
+  /*THEME BUTTON*/
   --button-border: 1px solid aliceblue;
   --button-bg-color: white;
 }

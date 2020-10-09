@@ -5,18 +5,6 @@ window.addEventListener("load", (e) => {
   });
 });
 
-function initThemeChange() {
-  var themeLink = document.getElementById("theme");
-  var themeSelector = document.getElementById("theme_selector");
-  console.log(document.getElementById("theme"));
-  themeSelector.addEventListener("click", () => {
-    if (themeLink.attributes.href.value === "theme_1.css") {
-      themeLink.setAttribute("href", "theme_2.css");
-    } else {
-      themeLink.setAttribute("href", "theme_1.css");
-    }
-  });
-}
 const fetchMenu = () => {
   const json = axios
     .get("https://unicafe.fi/wp-json/swiss/v1/restaurants")
@@ -89,3 +77,22 @@ const highlightAllergens = (ingredients) => {
   }
   return result.join();
 };
+
+function initThemeChange() {
+  var themeLink = document.getElementById("theme");
+  var themeSelector = document.getElementById("theme_selector");
+  themeSelector.addEventListener("click", () => {
+    themeLink.setAttribute("href", "themes/" + randomTheme() + ".css");
+  });
+}
+function randomTheme() {
+  var themes = ["theme_1", "theme_2", "theme_3", "theme_4"];
+  var random = Math.floor(Math.random() * themes.length);
+  while (
+    document.getElementById("theme").attributes.href.value ===
+    "themes/" + themes[random] + ".css"
+  ) {
+    random = Math.floor(Math.random() * themes.length);
+  }
+  return themes[random];
+}

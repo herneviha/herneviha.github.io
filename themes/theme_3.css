@@ -1,0 +1,28 @@
+:root {
+  /*STRUCTURE*/
+  --main-bg-color: mintcream;
+  --section-bg-color: mintcream;
+  --section-border: none;
+
+  /* TITLE */
+  --title-text-shadow: none;
+  --title-font-color: black;
+  --title-font-size: 10vw;
+  --date-font-size: 3rem;
+  --date-underline: none;
+  --food-font-size: 2rem;
+  --title-font: times new roman;
+
+  /*INGREDIENTS*/
+  --main-font: times new roman;
+  --main-font-color: black;
+  --main-font-size: 1rem;
+  --mark-bg-color: black;
+  --mark-color: white;
+  --text-align: left;
+  --ingredient-opacity: 1;
+
+  /*THEME BUTTON*/
+  --button-border: none;
+  --button-bg-color: white;
+}
