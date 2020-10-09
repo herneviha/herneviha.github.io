@@ -82,10 +82,15 @@ function initThemeChange() {
   var themeLink = document.getElementById("theme");
   var themeSelector = document.getElementById("theme_selector");
   themeSelector.addEventListener("click", () => {
-    themeLink.setAttribute("href", "themes/" + randomTheme() + ".css");
+    themeLink.setAttribute("href", "themes/" + changeTheme() + ".css");
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.which == 80) {
+      setInterval(createRandomTheme, 200);
+    }
   });
 }
-function randomTheme() {
+function changeTheme() {
   var themes = ["theme_1", "theme_2", "theme_3", "theme_4"];
   var random = Math.floor(Math.random() * themes.length);
   while (
@@ -95,4 +100,22 @@ function randomTheme() {
     random = Math.floor(Math.random() * themes.length);
   }
   return themes[random];
+}
+
+function createRandomTheme() {
+  const CSSvariables = [
+    "--main-bg-color",
+    "--section-bg-color",
+    "--title-font-color",
+    "--main-font-color",
+    "--mark-bg-color",
+    "--mark-color",
+    "--button-bg-color",
+  ];
+  for (var i = 0; i < CSSvariables.length; i++) {
+    document.documentElement.style.setProperty(
+      CSSvariables[i],
+      "#" + Math.floor(Math.random() * 16777215).toString(16)
+    );
+  }
 }
