@@ -79,6 +79,7 @@ const highlightAllergens = (ingredients) => {
 };
 
 function initThemeChange() {
+  var c = 0;
   var themeLink = document.getElementById("theme");
   var themeSelector = document.getElementById("theme_selector");
   themeSelector.addEventListener("click", () => {
@@ -87,6 +88,8 @@ function initThemeChange() {
   document.addEventListener("keydown", function (e) {
     if (e.which == 80) {
       setInterval(createRandomTheme, 200);
+      c = c + 1;
+      console.log("SEIZURE WARNING" + "!".repeat(c));
     }
   });
 }
