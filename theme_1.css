@@ -1,0 +1,15 @@
+:root {
+  --main-bg-color: lavenderblush;
+  --title-text-shadow: 8px 8px cyan;
+  --section-bg-color: white;
+  --section-border: 20px solid aliceblue;
+  --title-font: Helvetica;
+  --main-font: monospace;
+  --main-font-color: black;
+  --mark-bg-color: yellow;
+  --mark-color: black;
+  --text-align: center;
+  --ingredient-opacity: 1;
+  --button-border: 1px solid aliceblue;
+  --button-bg-color: white;
+}

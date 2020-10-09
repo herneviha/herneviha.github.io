@@ -1,0 +1,15 @@
+:root {
+  --main-bg-color: black;
+  --title-text-shadow: none;
+  --section-bg-color: black;
+  --section-border: 1px dashed #39ff14;
+  --title-font: courier;
+  --main-font: monospace;
+  --main-font-color: #39ff14;
+  --mark-bg-color: lightgrey;
+  --mark-color: green;
+  --text-align: left;
+  --ingredient-opacity: 0.7;
+  --button-border: 1px dashed #39ff14;
+  --button-bg-color: black;
+}

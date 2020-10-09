@@ -2,7 +2,8 @@ body {
   width: 100vw;
   height: 100vh;
   margin: 0;
-  font-family: monospace;
+  font-family: var(--main-font);
+  color: var(--main-font-color);
 }
 
 #menu,
@@ -10,13 +11,13 @@ header {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: lavenderblush;
+  background-color: var(--main-bg-color);
 }
 
 h1 {
-  font-family: Helvetica;
+  font-family: var(--title-font);
   font-size: 10vw;
-  text-shadow: 8px 8px cyan;
+  text-shadow: var(--title-text-shadow);
 }
 
 section {
@@ -26,14 +27,14 @@ section {
   z-index: 1;
   padding: 2%;
   margin-bottom: 2%;
-  background-color: white;
-  border: 20px solid aliceblue;
-  text-align: center;
+  background-color: var(--section-bg-color);
+  border: var(--section-border);
+  text-align: var(--text-align);
 }
 
 h2 {
   font-size: 3rem;
-  text-align: center;
+  text-align: var(--text-align);
   text-decoration: underline;
 }
 h3 {
@@ -43,10 +44,31 @@ h3 {
 
 p {
   font-size: 1.5rem;
-
+  opacity: var(--ingredient-opacity);
   margin: 0;
 }
 
 .food_container {
   margin-bottom: 7%;
+}
+
+mark {
+  background-color: var(--mark-bg-color);
+}
+
+#theme_selector {
+  cursor: pointer;
+  align-self: end;
+  margin: 20px;
+  background: var(--button-bg-color);
+  border: var(--button-border);
+  padding: 8px;
+  color: var(--main-font-color);
+  font-family: var(--main-font);
+}
+
+#top_menu {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
 }
