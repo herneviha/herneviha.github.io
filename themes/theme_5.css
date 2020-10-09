@@ -1,0 +1,28 @@
+:root {
+  /*STRUCTURE*/
+  --main-bg-color: hotpink;
+  --section-bg-color: hotpink;
+  --section-border: none;
+
+  /* TITLE */
+  --title-text-shadow: none;
+  --title-font-size: 15vw;
+  --title-font-color: black;
+  --date-font-size: 1rem;
+  --date-underline: none;
+  --food-font-size: 4rem;
+  --title-font: Helvetica;
+
+  /*INGREDIENTS*/
+  --main-font: helvetica;
+  --main-font-size: 0.6rem;
+  --main-font-color: black;
+  --mark-bg-color: white;
+  --mark-color: black;
+  --text-align: right;
+  --ingredient-opacity: 1;
+
+  /*THEME BUTTON*/
+  --button-border: none;
+  --button-bg-color: hotpink;
+}

@@ -1,0 +1,28 @@
+:root {
+  /*STRUCTURE*/
+  --main-bg-color: lightgray;
+  --section-bg-color: black;
+  --section-border: 20px groove darkgrey;
+
+  /* TITLE */
+  --title-text-shadow: 0px 60px grey;
+  --title-font-size: 10vw;
+  --title-font-color: white;
+  --date-font-size: 3rem;
+  --date-underline: overline;
+  --food-font-size: 2rem;
+  --title-font: copperplate;
+
+  /*INGREDIENTS*/
+  --main-font-size: 1.5rem;
+  --main-font-color: white;
+  --main-font: copperplate;
+  --mark-bg-color: gray;
+  --mark-color: black;
+  --text-align: justify;
+  --ingredient-opacity: 1px;
+
+  /*THEME BUTTON*/
+  --button-border: 1px solid aliceblue;
+  --button-bg-color: darkgray;
+}

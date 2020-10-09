@@ -9,12 +9,12 @@
   --title-font-size: 10vw;
   --title-font-color: #39ff14;
   --date-font-size: 3rem;
-  --date-underline: underline;
+  --date-underline: none;
   --food-font-size: 2rem;
-  --title-font: courier;
+  --title-font: monaco;
 
   /*INGREDIENTS*/
-  --main-font: monospace;
+  --main-font: monaco;
   --main-font-size: 1.5rem;
   --main-font-color: #39ff14;
   --mark-bg-color: lightgrey;

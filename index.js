@@ -94,7 +94,14 @@ function initThemeChange() {
   });
 }
 function changeTheme() {
-  var themes = ["theme_1", "theme_2", "theme_3", "theme_4"];
+  var themes = [
+    "theme_1",
+    "theme_2",
+    "theme_3",
+    "theme_4",
+    "theme_5",
+    "theme_6",
+  ];
   var random = Math.floor(Math.random() * themes.length);
   while (
     document.getElementById("theme").attributes.href.value ===
