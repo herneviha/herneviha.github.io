@@ -1,9 +1,34 @@
 window.addEventListener("load", (e) => {
   initThemeChange();
   fetchMenu().then((restaurants) => {
-    renderMenu(restaurants);
+    initRestaurants(restaurants);
+    document
+      .getElementById("restaurant_selector")
+      .addEventListener("change", (event) => {
+        renderMenu(
+          restaurants.data.find(({ title }) => title === event.target.value)
+        );
+      });
   });
 });
+
+const initRestaurants = (restaurants) => {
+  restaurants.data
+    .sort((a, b) => a.title.localeCompare(b.title))
+    .forEach((restaurant) => {
+      document.getElementById(
+        "restaurant_selector"
+      ).innerHTML += `<option value="${restaurant.title}">${restaurant.title}</option>`;
+
+      // sets the default option to chemicum...pretty ugly but works
+      if (restaurant.title === "Chemicum") {
+        document
+          .querySelector('[value="Chemicum"]')
+          .setAttribute("selected", "selected");
+        renderMenu(restaurant);
+      }
+    });
+};
 
 const fetchMenu = () => {
   const json = axios
@@ -14,22 +39,19 @@ const fetchMenu = () => {
   return json;
 };
 
-const renderMenu = (restaurants) => {
-  restaurants.data.forEach((restaurant) => {
-    if (restaurant.title === "Chemicum") {
-      restaurant.menuData.menus.forEach((item) => {
-        if (notAlreadyPassed(item.date)) {
+const renderMenu = (restaurant) => {
+  document.getElementById("menu").innerHTML = "";
+  restaurant.menuData.menus.forEach((item) => {
+    if (notAlreadyPassed(item.date)) {
+      document.getElementById(
+        "menu"
+      ).innerHTML += `<section id="${item.date}"><h2 class="date">${item.date}</h2></section>`;
+      item.data.forEach((data, i) => {
+        if (data.ingredients != "_" && data.ingredients != "") {
+          let ingredients = highlightAllergens(data.ingredients);
           document.getElementById(
-            "menu"
-          ).innerHTML += `<section id="${item.date}"><h2 class="date">${item.date}</h2></section>`;
-          item.data.forEach((data, i) => {
-            if (data.ingredients != "_" && data.ingredients != "") {
-              let ingredients = highlightAllergens(data.ingredients);
-              document.getElementById(
-                item.date
-              ).innerHTML += `<div class="food_container"><h3 class="name">${data.name}</h3><p class="ingredients">${ingredients}</p></div>`;
-            }
-          });
+            item.date
+          ).innerHTML += `<div class="food_container"><h3 class="name">${data.name}</h3><p class="ingredients">${ingredients}</p></div>`;
         }
       });
     }
